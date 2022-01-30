@@ -18,13 +18,17 @@
                 @foreach($tasks as $i=>$task)
                     <tr>
                         <th scope="row">{{$i+1}}</th>
-                        <td>{{$task['title']}}</td>
-                        <td>{{$task['created_by']}}</td>
-                        <td>{{$task['created_at']}}</td>
+                        <td>{{$task->title}}</td>
+                        <td>{{ isset($task->user) ? $task->user->name : '-----' }}</td>
+                        <td>{{$task->created_at->format("Y-m-d")}}</td>
                         <td>
                             <a href="{{route('tasks.show',['task'=>$task['id']])}}" class="btn btn-info">View</a>
                             <a href="{{route('tasks.edit',['task'=>$task['id']])}}" class="btn btn-success">Update</a>
-                            <button type="button" class="btn btn-danger">Delete</button>
+                            <form method='post' action="{{route('tasks.destroy',['task'=>$task->id])}}" style="display:inline">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach

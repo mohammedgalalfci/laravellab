@@ -6,18 +6,15 @@
         <form method='post' action='{{route("tasks.store")}}' class="row row-cols-lg-auto g-3 align-items-center bg-dark p-3 rounded m-auto" style="width:500px">
             @csrf
             <div class="col-12">
-                <input type="text" class="form-control"  placeholder="Title">
+                <input type="text" class="form-control"  placeholder="Title" name='title'>
             </div>
 
             <div class="col-12">
-                <div class="input-group">
-                    <div class="input-group-text">@</div>
-                    <input type="text" class="form-control" placeholder="Username">
-                </div>
-            </div>
-
-            <div class="col-12">
-                <input type="date" class="form-control">
+                <select name="user_name" class="form-control">
+                    @foreach ($users as $user)
+                        <option value="{{$user->id}}">{{$user->name}}</option>
+                    @endforeach
+                </select>
             </div>
 
             <div class="col-12">
