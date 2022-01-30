@@ -3,7 +3,7 @@
         Create
     @endsection
     @section('content')
-    <div class="card text-center">
+    <div class="card text-center mt-5">
     <div class="card-header">
         Title : {{$task->title}}
     </div>
@@ -15,4 +15,17 @@
         Welcome here
     </div>
     </div>
+
+    <div class="card text-center mt-5">
+    <div class="card-header">
+        Title : {{$task->user->name}}
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Email : {{$task->user->email}}</h5>
+    </div>
+    <div class="card-footer text-muted">
+        Welcome here
+    </div>
+    </div>
+
     @endsection

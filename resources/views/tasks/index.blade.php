@@ -22,12 +22,12 @@
                         <td>{{ isset($task->user) ? $task->user->name : '-----' }}</td>
                         <td>{{$task->created_at->format("Y-m-d")}}</td>
                         <td>
-                            <a href="{{route('tasks.show',['task'=>$task['id']])}}" class="btn btn-info">View</a>
-                            <a href="{{route('tasks.edit',['task'=>$task['id']])}}" class="btn btn-success">Update</a>
+                            <a href="{{route('tasks.show',['task'=>$task['id']])}}" class="btn btn-info"><i class="far fa-eye"></i></a>
+                            <a href="{{route('tasks.edit',['task'=>$task['id']])}}" class="btn btn-success"><i class="fas fa-edit"></i></a>
                             <form method='post' action="{{route('tasks.destroy',['task'=>$task->id])}}" style="display:inline">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger">Delete</button>
+                                <button type="submit" class="btn btn-danger"><i class="fas fa-times"></i></button>
                             </form>
                         </td>
                     </tr>
