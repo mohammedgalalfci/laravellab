@@ -27,11 +27,20 @@
                             <form method='post' action="{{route('tasks.destroy',['task'=>$task->id])}}" style="display:inline">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger"><i class="fas fa-times"></i></button>
+                                <button type="submit" id='del' class="btn btn-danger"><i class="fas fa-times"></i></button>
                             </form>
                         </td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
+        <script>
+            const del=document.getElementById('del');
+            del.addEventListener('click',function(e){
+                const c=confirm("You Sure Continue Deleted !");
+                if(c == false){
+                   e.preventDefault();
+                }
+            })
+        </script>
     @endsection
