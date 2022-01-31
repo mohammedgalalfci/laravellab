@@ -3,10 +3,14 @@
         Create
     @endsection
     @section('content')
-        <form method='post' action='{{route("tasks.store")}}' class="row row-cols-lg-auto g-3 align-items-center bg-dark p-3 rounded m-auto" style="width:500px">
+        <form method='post' action='{{route("tasks.store")}}' class="row row-cols-lg-auto g-3 align-items-center bg-ligth p-3 rounded m-auto" style="width:500px">
             @csrf
             <div class="col-12">
                 <input type="text" class="form-control"  placeholder="Title" name='title'>
+                @foreach ($errors->get('title') as $message)
+                    <p class="text-danger">{{$message}}</p>
+                @endforeach
+
             </div>
 
             <div class="col-12">

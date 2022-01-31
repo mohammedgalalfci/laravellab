@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Task;
 use App\Models\User;
+use App\Http\Requests\StoreTaskRequest;
 class TaskController extends Controller
 {
     public function index(){
@@ -17,7 +18,7 @@ class TaskController extends Controller
         return view('tasks.create',['users' => $users]);
     }
 
-    public function store(){
+    public function store(StoreTaskRequest $request){
         $task = request()->all();
         Task::create([
             'title' => $task['title'],
@@ -37,7 +38,7 @@ class TaskController extends Controller
         return view('tasks.edit',['task'=>$oneTask,'users'=>$users]);
     }
 
-    public function update($task,Request $req){
+    public function update($task,Request $req,StoreTaskRequest $request){
         $oneTask=Task::findOrFail($task);
         $oneTask->update([
             'title' => $req['title'],

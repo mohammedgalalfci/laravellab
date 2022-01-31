@@ -3,11 +3,14 @@
         Create
     @endsection
     @section('content')
-        <form method='post' action="{{route('tasks.update',['task'=>$task->id])}}" class="row row-cols-lg-auto g-3 align-items-center bg-dark p-3 rounded m-auto" style="width:500px">
+        <form method='post' action="{{route('tasks.update',['task'=>$task->id])}}" class="row row-cols-lg-auto g-3 align-items-center bg-light p-3 rounded m-auto" style="width:500px">
             @csrf
             @method('PUT')
             <div class="col-12">
                 <input type="text" class="form-control"  placeholder="Title" name='title' value="{{$task->title}}">
+                @foreach ($errors->get('title') as $message)
+                    <p class="text-danger">{{$message}}</p>
+                @endforeach
             </div>
 
             <div class="col-12">
