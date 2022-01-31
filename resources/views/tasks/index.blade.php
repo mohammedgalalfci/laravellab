@@ -4,7 +4,7 @@
     @endsection
     @section('content')
         <a href="{{route('tasks.create')}}" class="btn btn-success">Create Task</a>
-        <table class="table mt-5">
+        <table class="table">
             <thead>
                 <tr>
                     <th scope="col">#</th>
@@ -18,7 +18,7 @@
                 @foreach($tasks as $i=>$task)
                     <tr>
                         <th scope="row">{{$i+1}}</th>
-                        <td>{{$task->title}}</td>
+                        <td width="30%">{{$task->title}}</td>
                         <td>{{ isset($task->user) ? $task->user->name : '-----' }}</td>
                         <td>{{$task->created_at->format("Y-m-d")}}</td>
                         <td>
