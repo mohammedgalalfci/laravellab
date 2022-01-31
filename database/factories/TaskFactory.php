@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\Task;
+use App\Models\User;
 class TaskFactory extends Factory
 {
     /**
@@ -14,8 +15,8 @@ class TaskFactory extends Factory
     public function definition()
     {
         return [
-            // 'title' => $this->faker->text(100),
-            // 'user_id'=>rand(1,20),
+             'title' => $this->faker->text(100),
+             'user_id' => User::factory()
         ];
     }
 }
