@@ -34,7 +34,7 @@
                 @endforeach
             </tbody>
         </table>
-        {{ $tasks->onEachSide(0)->links() }}
+        {{ $tasks->links() }}
         <script>
             const del=document.getElementById('del');
             del.addEventListener('click',function(e){

@@ -25,6 +25,9 @@
             vertical-align: middle;
             height: 20px;
         }
+        .text-sm.text-gray-700.leading-5{
+            margin-top:15px;
+        }
     </style>
 </head>
 <body>
