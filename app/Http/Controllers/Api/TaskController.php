@@ -13,7 +13,7 @@ use App\Http\Resources\UserResource;
 class TaskController extends Controller
 {
     public function index(){
-        $tasks=Task::all(); 
+        $tasks=Task::paginate(3);  
         return TaskResource::collection($tasks);
     }
     public function store(StoreTaskRequest $request){
