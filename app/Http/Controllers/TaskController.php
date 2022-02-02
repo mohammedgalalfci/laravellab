@@ -9,7 +9,7 @@ use App\Http\Requests\StoreTaskRequest;
 class TaskController extends Controller
 {
     public function index(){
-        $tasks=Task::paginate(3); 
+        $tasks=Task::with('user')->paginate(3); 
         return view('tasks.index',['tasks'=>$tasks]);
     }
 
