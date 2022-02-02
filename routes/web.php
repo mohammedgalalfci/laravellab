@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
+use App\Http\Controllers\Auth\GoogleController;
 use App\Models\User;
 /*
 |--------------------------------------------------------------------------
@@ -65,7 +66,10 @@ Route::get('/auth/callback', function () {
             'github_refresh_token' => $githubUser->refreshToken,
         ]);
     }
+
     Auth::login($user);
 
     return redirect('/tasks');
 });
+Route::get('auth/google', [GoogleController::class,'redirectToGoogle'] );
+Route::get('auth/google/callback', [GoogleController::class,'handleGoogleCallback'] );
